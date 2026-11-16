@@ -1,0 +1,1100 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#481b2b">
+
+<title>Beyond the Noise | 2AS Mathématiques</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --wine: #481b2b;
+  --wine2: #682d42;
+  --rose: #a76c7d;
+  --cream: #f7f1e9;
+  --paper: #fffdf9;
+  --gold: #b99a69;
+  --ink: #30242a;
+  --muted: #85777a;
+  --line: #e8ded7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+body.ar {
+  font-family: 'Amiri', serif;
+}
+
+button {
+  font: inherit;
+}
+
+/* NAVIGATION */
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 8%;
+  color: white;
+}
+
+.brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  letter-spacing: 2px;
+}
+
+.langs {
+  display: flex;
+  gap: 8px;
+}
+
+.langs button {
+  border: 1px solid #ffffff65;
+  background: transparent;
+  color: white;
+  padding: 8px 13px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: .3s;
+  font-size: 12px;
+}
+
+.langs button.active,
+.langs button:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: white;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 750px;
+  height: 100svh;
+  max-height: 950px;
+  background:
+    radial-gradient(ellipse at 80% 30%, #814357 0%, transparent 40%),
+    linear-gradient(125deg, #351321, #542336 60%, #321522);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 130px 20px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border: 1px solid #ffffff17;
+  border-radius: 50%;
+  width: 500px;
+  height: 500px;
+  pointer-events: none;
+}
+
+.hero::before {
+  top: -280px;
+  right: -150px;
+}
+
+.hero::after {
+  bottom: -340px;
+  left: -170px;
+  width: 650px;
+  height: 650px;
+}
+
+.hero-content {
+  max-width: 850px;
+  position: relative;
+  z-index: 1;
+  animation: appear 1.2s ease both;
+}
+
+.eyebrow {
+  color: #d7bc93;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 11px;
+  margin-bottom: 30px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 8vw, 92px);
+  font-weight: 400;
+  line-height: 1.08;
+  margin-bottom: 25px;
+}
+
+.hero h1 span {
+  color: #d4b58b;
+  font-style: italic;
+}
+
+.hero-description {
+  color: #e9dce0;
+  font-size: 15px;
+  line-height: 2;
+  max-width: 590px;
+  margin: 0 auto 38px;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 15px 30px;
+  background: var(--gold);
+  color: #2d1720;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+.hero-button:hover {
+  background: white;
+  transform: translateY(-3px);
+}
+
+.scroll {
+  position: absolute;
+  bottom: 30px;
+  color: #d7bc93;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+/* GENERAL SECTIONS */
+
+.section {
+  padding: 110px 9%;
+}
+
+.section-label {
+  color: var(--rose);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 10px;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 5vw, 53px);
+  font-weight: 400;
+  color: var(--wine);
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.intro {
+  max-width: 750px;
+  margin: auto;
+  text-align: center;
+}
+
+.intro p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 2.1;
+}
+
+.divider {
+  width: 55px;
+  height: 2px;
+  background: var(--gold);
+  margin: 30px auto;
+}
+
+/* QUOTE */
+
+.quote-section {
+  background: var(--wine);
+  color: white;
+  text-align: center;
+  padding: 105px 10%;
+  position: relative;
+}
+
+.quote-mark {
+  font-family: 'Playfair Display', serif;
+  font-size: 85px;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.quote-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(29px, 5vw, 48px);
+  font-weight: 400;
+  line-height: 1.4;
+  max-width: 850px;
+  margin: 10px auto 25px;
+}
+
+.quote-section p {
+  color: #d9c7cc;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* LETTER */
+
+.message {
+  max-width: 950px;
+  margin: auto;
+}
+
+.message p {
+  font-size: 15px;
+  line-height: 2.2;
+  color: #65575c;
+  margin-bottom: 22px;
+}
+
+.message strong {
+  color: var(--wine);
+}
+
+.highlight {
+  background: #efe4df;
+  border-left: 3px solid var(--gold);
+  padding: 28px 30px;
+  margin: 40px 0;
+  color: var(--wine);
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  line-height: 1.7;
+}
+
+/* CARDS */
+
+.cards-section {
+  background: #eee5de;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 55px;
+}
+
+.card {
+  background: var(--paper);
+  padding: 38px 28px;
+  min-height: 240px;
+  border-bottom: 2px solid var(--gold);
+  transition: .35s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+}
+
+.card-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 23px;
+  color: var(--wine);
+  margin-bottom: 13px;
+  font-weight: 500;
+}
+
+.card p {
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: 13px;
+}
+
+/* CLOSING */
+
+.closing {
+  background: var(--paper);
+  text-align: center;
+  padding: 115px 9%;
+}
+
+.closing h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--wine);
+  font-size: clamp(35px, 5vw, 57px);
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.closing p {
+  color: var(--muted);
+  line-height: 2;
+  max-width: 650px;
+  margin: auto;
+  font-size: 14px;
+}
+
+.signature {
+  margin-top: 45px;
+  color: var(--wine);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 22px;
+}
+
+/* FOOTER */
+
+footer {
+  background: #30131f;
+  color: #d9c6ca;
+  text-align: center;
+  padding: 35px 15px;
+  font-size: 11px;
+  line-height: 2.3;
+}
+
+footer strong {
+  color: #d4b58b;
+}
+
+footer .copyright {
+  margin-top: 12px;
+  color: #a68d96;
+  letter-spacing: 1px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* ARABIC */
+
+body.ar .hero h1,
+body.ar .section-title,
+body.ar .quote-section h2,
+body.ar .closing h2,
+body.ar .card h3,
+body.ar .highlight {
+  font-family: 'Amiri', serif;
+}
+
+body.ar .section-label,
+body.ar .eyebrow {
+  letter-spacing: 1px;
+}
+
+body.ar .message,
+body.ar .intro,
+body.ar .card,
+body.ar .closing,
+body.ar .quote-section {
+  direction: rtl;
+}
+
+body.ar .highlight {
+  border-left: none;
+  border-right: 3px solid var(--gold);
+}
+
+body.ar .navbar {
+  direction: ltr;
+}
+
+/* ANIMATIONS */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:750px) {
+  .navbar {
+    padding: 20px 5%;
+  }
+
+  .brand {
+    font-size: 14px;
+  }
+
+  .langs {
+    gap: 4px;
+  }
+
+  .langs button {
+    padding: 7px 9px;
+    font-size: 10px;
+  }
+
+  .hero {
+    min-height: 680px;
+  }
+
+  .section {
+    padding: 80px 7%;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: auto;
+  }
+
+  .quote-section {
+    padding: 80px 7%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="brand">2AS · MATHÉMATIQUES</div>
+
+  <div class="langs">
+    <button class="active" onclick="setLanguage('fr',this)">FR</button>
+    <button onclick="setLanguage('ar',this)">AR</button>
+    <button onclick="setLanguage('en',this)">EN</button>
+  </div>
+</header>
+
+<!-- ================= FRENCH ================= -->
+
+<main id="fr">
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Un message de la section Mathématiques</div>
+
+    <h1>Au-delà du <span>bruit.</span><br>Nous excellons.</h1>
+
+    <p class="hero-description">
+      Nous ne sommes peut-être pas la classe la plus silencieuse,
+      mais nous avons certainement beaucoup à montrer.
+      De l'énergie, de l'ambition et un immense potentiel.
+    </p>
+
+    <a href="#message-fr" class="hero-button">
+      DÉCOUVRIR NOTRE MESSAGE →
+    </a>
+  </div>
+
+  <div class="scroll">DÉFILER POUR DÉCOUVRIR ↓</div>
+</section>
+
+<section class="section">
+  <div class="intro reveal">
+    <div class="section-label">Une lettre de reconnaissance</div>
+    <h2 class="section-title">À nos chers enseignants.</h2>
+    <div class="divider"></div>
+
+    <p>
+      Derrière chaque cours, chaque explication et chaque
+      encouragement se cache un effort qui mérite d'être reconnu.
+      Aujourd'hui, nous souhaitons prendre un moment pour vous
+      exprimer toute notre gratitude.
+    </p>
+  </div>
+</section>
+
+<section class="quote-section">
+  <div class="quote-mark">«</div>
+
+  <h2>
+    Nous parlons peut-être un peu trop,
+    mais nous savons rêver, réfléchir et réussir encore plus fort.
+  </h2>
+
+  <p>2ᵉ AS · SECTION MATHÉMATIQUES · NOTRE IDENTITÉ</p>
+</section>
+
+<section class="section" id="message-fr">
+  <div class="message reveal">
+
+    <div class="section-label">01 — Nos mots</div>
+    <h2 class="section-title">Un sincère merci.</h2>
+
+    <p>Chers enseignants,</p>
+
+    <p>
+      Avant tout, nous tenons à vous remercier sincèrement pour
+      votre patience, vos efforts et votre engagement tout au long
+      de cette année scolaire.
+    </p>
+
+    <p>
+      Nous savons que notre classe peut parfois être assez bavarde,
+      dynamique, voire un peu trop énergique. Nous reconnaissons
+      que nous ne sommes pas toujours les élèves les plus silencieux
+      de l'établissement !
+    </p>
+
+    <div class="highlight">
+      Mais derrière cette énergie, il y a des esprits curieux,
+      des idées, de l'ambition et surtout une véritable capacité
+      à créer, à réfléchir et à réussir.
+    </div>
+
+    <p>
+      Nous n'avons pas terni l'image de la section Mathématiques.
+      Nous avons simplement notre propre façon de faire vivre
+      cette classe.
+    </p>
+
+    <p>
+      Nous vous demandons humblement de continuer à nous accompagner
+      et de prendre en considération nos efforts, notre participation
+      et notre travail lors de l'évaluation continue.
+      Nous espérons pouvoir compter sur votre compréhension
+      et votre bienveillance dans l'attribution de nos notes.
+    </p>
+
+    <p>
+      Nous ne demandons pas des points sans mérite, mais simplement
+      que les efforts fournis soient reconnus et que chacun ait
+      la possibilité de montrer ce dont il est capable.
+    </p>
+
+    <p>
+      Car, au-delà de nos conversations, nous savons aussi faire
+      preuve de sérieux, de créativité et d'excellence.
+    </p>
+
+    <p>
+      <strong>Avec tout notre respect et notre reconnaissance,</strong><br>
+      Les élèves de la 2ᵉ AS Mathématiques.
+    </p>
+
+  </div>
+</section>
+
+<section class="section cards-section">
+
+  <div class="intro reveal">
+    <div class="section-label">02 — Qui sommes-nous ?</div>
+    <h2 class="section-title">Bien plus qu'une simple classe.</h2>
+    <div class="divider"></div>
+    <p>Trois qualités qui définissent notre classe.</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card reveal">
+      <div class="card-number">01</div>
+      <h3>L'énergie.</h3>
+      <p>
+        Oui, nous parlons. Parfois beaucoup.
+        Mais notre classe déborde de vie, d'idées
+        et d'enthousiasme.
+      </p>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-number">02</div>
+      <h3>L'ambition.</h3>
+      <p>
+        Nous sommes des élèves qui souhaitent progresser,
+        relever des défis et obtenir des résultats
+        à la hauteur de leurs capacités.
+      </p>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-number">03</div>
+      <h3>Le potentiel.</h3>
+      <p>
+        Nos voix sont peut-être fortes, mais nos ambitions
+        le sont tout autant. Nous savons transformer
+        notre énergie en réussite.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="closing">
+
+  <div class="section-label">03 — Nos derniers mots</div>
+
+  <h2>Une énergie différente.<br><em>La même excellence.</em></h2>
+
+  <p>
+    Merci de croire en nous, de nous guider et de nous donner
+    l'occasion de progresser. Nous espérons que cette année
+    restera dans les mémoires non seulement pour nos conversations,
+    mais aussi pour tout ce que nous aurons accompli ensemble.
+  </p>
+
+  <div class="divider"></div>
+
+  <div class="signature">
+    Avec toute notre gratitude,<br>
+    La 2ᵉ AS — Section Mathématiques.
+  </div>
+
+</section>
+</main>
+
+<!-- ================= ARABIC ================= -->
+
+<main id="ar" hidden>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">رسالة من قسم الرياضيات</div>
+
+    <h1>ما وراء <span>الضجيج.</span><br>هناك إبداع.</h1>
+
+    <p class="hero-description">
+      قد لا نكون القسم الأكثر هدوءًا، لكن لدينا بالتأكيد
+      ما نُظهره. طاقة كبيرة، طموح أكبر، وإمكانات لا حدود لها.
+    </p>
+
+    <a href="#message-ar" class="hero-button">اكتشفوا رسالتنا ←</a>
+  </div>
+
+  <div class="scroll">تابعوا القراءة ↓</div>
+</section>
+
+<section class="section">
+  <div class="intro reveal">
+    <div class="section-label">رسالة تقدير وامتنان</div>
+    <h2 class="section-title">إلى أساتذتنا الأعزاء.</h2>
+    <div class="divider"></div>
+
+    <p>
+      خلف كل درس وشرح وكلمة تشجيع، يوجد جهد يستحق التقدير.
+      واليوم نريد أن نتوقف قليلًا لنعبّر لكم عن امتناننا.
+    </p>
+  </div>
+</section>
+
+<section class="quote-section">
+  <div class="quote-mark">”</div>
+
+  <h2>
+    قد نتحدث كثيرًا، لكننا نحلم ونفكر ونبدع بصوت أعلى.
+  </h2>
+
+  <p>السنة الثانية ثانوي — شعبة الرياضيات</p>
+</section>
+
+<section class="section" id="message-ar">
+  <div class="message reveal">
+
+    <div class="section-label">01 — كلماتنا إليكم</div>
+    <h2 class="section-title">شكرًا لكم من القلب.</h2>
+
+    <p>أساتذتنا الكرام،</p>
+
+    <p>
+      بدايةً، نتقدم إليكم بخالص الشكر والتقدير على صبركم
+      وجهودكم وتفانيكم في أداء رسالتكم التعليمية طوال هذا العام الدراسي.
+    </p>
+
+    <p>
+      ندرك جيدًا أننا قد نكون أحيانًا قسمًا كثير الحديث،
+      مفعمًا بالحيوية، وربما نملك من الطاقة ما يفوق المعتاد!
+      ونعترف بأن الهدوء ليس دائمًا أقوى نقاطنا.
+    </p>
+
+    <div class="highlight">
+      لكن خلف هذه الطاقة عقول فضولية، وأفكار طموحة،
+      وقدرات حقيقية على الإبداع والتفكير والتميز.
+    </div>
+
+    <p>
+      نحن لم نشوّه صورة شعبة الرياضيات، بل نملك ببساطة
+      طابعنا الخاص وطريقتنا المختلفة في إضفاء الحيوية على القسم.
+    </p>
+
+    <p>
+      نرجو منكم مواصلة مرافقتنا ودعمنا، وأخذ جهودنا ومشاركتنا
+      وعملنا بعين الاعتبار عند تقييم نقاط المراقبة المستمرة.
+      ونأمل أن نجد منكم التفهم والإنصاف والتشجيع في تقدير نتائجنا.
+    </p>
+
+    <p>
+      نحن لا نطلب نقاطًا دون استحقاق، بل نرجو فقط أن تُقدّر
+      الجهود المبذولة، وأن تتاح لكل تلميذ فرصة إظهار قدراته الحقيقية.
+    </p>
+
+    <p>
+      فبعيدًا عن أحاديثنا الكثيرة، نحن قادرون أيضًا على الجدية
+      والإبداع والتفوق حين يتطلب الأمر ذلك.
+    </p>
+
+    <p>
+      <strong>مع فائق الاحترام والتقدير،</strong><br>
+      تلاميذ السنة الثانية ثانوي — شعبة الرياضيات.
+    </p>
+
+  </div>
+</section>
+
+<section class="section cards-section">
+
+  <div class="intro reveal">
+    <div class="section-label">02 — من نحن؟</div>
+    <h2 class="section-title">لسنا مجرد قسم دراسي.</h2>
+    <div class="divider"></div>
+    <p>ثلاث صفات تلخص شخصيتنا.</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card reveal">
+      <div class="card-number">01</div>
+      <h3>الحيوية.</h3>
+      <p>
+        نعم، نتحدث. وأحيانًا كثيرًا!
+        لكن قسمنا مليء بالحياة والأفكار والحماس.
+      </p>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-number">02</div>
+      <h3>الطموح.</h3>
+      <p>
+        نحن تلاميذ نطمح إلى التطور وتحدي أنفسنا
+        وتحقيق نتائج تليق بقدراتنا.
+      </p>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-number">03</div>
+      <h3>الإمكانات.</h3>
+      <p>
+        قد تكون أصواتنا مرتفعة، لكن طموحاتنا أيضًا مرتفعة.
+        نعرف كيف نحوّل طاقتنا إلى إنجاز.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="closing">
+
+  <div class="section-label">03 — كلمتنا الأخيرة</div>
+
+  <h2>طاقة مختلفة.<br><em>وتميز واحد.</em></h2>
+
+  <p>
+    شكرًا لثقتكم بنا، وتوجيهكم لنا، ومنحنا فرصة التطور.
+    نأمل أن يُذكر هذا العام ليس بكثرة أحاديثنا فحسب،
+    بل بما حققناه معًا من إنجازات.
+  </p>
+
+  <div class="divider"></div>
+
+  <div class="signature">
+    بكل امتنان،<br>
+    قسم السنة الثانية ثانوي رياضيات.
+  </div>
+
+</section>
+</main>
+
+<!-- ================= ENGLISH ================= -->
+
+<main id="en" hidden>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">A message from the Mathematics Section</div>
+
+    <h1>Beyond the <span>Noise.</span><br>We Excel.</h1>
+
+    <p class="hero-description">
+      We may not be the quietest class, but we certainly have
+      something to show. Great energy, greater ambition,
+      and endless potential.
+    </p>
+
+    <a href="#message-en" class="hero-button">
+      DISCOVER OUR MESSAGE →
+    </a>
+  </div>
+
+  <div class="scroll">SCROLL TO EXPLORE ↓</div>
+</section>
+
+<section class="section">
+  <div class="intro reveal">
+    <div class="section-label">A letter of appreciation</div>
+    <h2 class="section-title">To our dear teachers.</h2>
+    <div class="divider"></div>
+
+    <p>
+      Behind every lesson, explanation and word of encouragement,
+      there is an effort that deserves recognition.
+      Today, we want to express our gratitude.
+    </p>
+  </div>
+</section>
+
+<section class="quote-section">
+  <div class="quote-mark">“</div>
+
+  <h2>
+    We may talk a little too much, but we dream,
+    think and achieve even louder.
+  </h2>
+
+  <p>2ND YEAR · MATHEMATICS SECTION</p>
+</section>
+
+<section class="section" id="message-en">
+  <div class="message reveal">
+
+    <div class="section-label">01 — Our words</div>
+    <h2 class="section-title">A sincere thank you.</h2>
+
+    <p>Dear Teachers,</p>
+
+    <p>
+      First and foremost, we would like to express our sincere
+      gratitude for your patience, dedication and efforts
+      throughout this school year.
+    </p>
+
+    <p>
+      We know that our class can sometimes be quite talkative,
+      dynamic and perhaps a little too energetic.
+      We admit that silence is not always our strongest quality!
+    </p>
+
+    <div class="highlight">
+      However, behind all that energy are curious minds,
+      ambitious students, creative ideas and a genuine ability
+      to think, achieve and excel.
+    </div>
+
+    <p>
+      We have not damaged the reputation of the Mathematics Section.
+      We simply have our own way of bringing life into the classroom.
+    </p>
+
+    <p>
+      We kindly ask you to continue supporting us and to take our
+      efforts, participation and commitment into consideration
+      when evaluating our continuous assessment marks.
+      Your understanding and encouragement mean a great deal to us.
+    </p>
+
+    <p>
+      We are not asking for marks without merit. We are simply hoping
+      that our hard work will be recognized and that every student
+      will have the opportunity to demonstrate their true abilities.
+    </p>
+
+    <p>
+      Because beyond all the conversations, we know how to be serious,
+      creative and excellent when it matters.
+    </p>
+
+    <p>
+      <strong>With sincere appreciation and respect,</strong><br>
+      The students of the 2nd Year Mathematics Section.
+    </p>
+
+  </div>
+</section>
+
+<section class="section cards-section">
+
+  <div class="intro reveal">
+    <div class="section-label">02 — Who are we?</div>
+    <h2 class="section-title">More than just a classroom.</h2>
+    <div class="divider"></div>
+    <p>Three qualities that define our class.</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card reveal">
+      <div class="card-number">01</div>
+      <h3>Energy.</h3>
+      <p>
+        Yes, we talk. Sometimes a lot.
+        But our classroom is full of life, ideas and enthusiasm.
+      </p>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-number">02</div>
+      <h3>Ambition.</h3>
+      <p>
+        We want to progress, challenge ourselves
+        and achieve meaningful results.
+      </p>
+    </div>
+
+    <div class="card reveal">
+      <div class="card-number">03</div>
+      <h3>Potential.</h3>
+      <p>
+        Our voices may be loud, but so are our dreams.
+        We know how to turn energy into achievement.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="closing">
+
+  <div class="section-label">03 — Our final words</div>
+
+  <h2>Different energy.<br><em>Same excellence.</em></h2>
+
+  <p>
+    Thank you for believing in us, guiding us and giving us
+    the opportunity to grow. We hope this year will be remembered
+    not only for our conversations, but also for what we achieved together.
+  </p>
+
+  <div class="divider"></div>
+
+  <div class="signature">
+    With gratitude,<br>
+    2AS Mathematics Section.
+  </div>
+
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+  <div>Made with purpose, creativity and a little extra energy.</div>
+
+  <div>2AS Mathematics Section · 2026</div>
+
+  <div class="copyright">
+    Designed & Developed by <strong>Imene Oudjit</strong><br>
+    © 2026 Imene Oudjit. All Rights Reserved.
+  </div>
+</footer>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+function setLanguage(lang, button) {
+
+  document.querySelectorAll('main').forEach(main => {
+    main.hidden = main.id !== lang;
+  });
+
+  document.querySelectorAll('.langs button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  button.classList.add('active');
+
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+  document.body.classList.toggle('ar', lang === 'ar');
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+
+  observeElements();
+}
+
+let observer;
+
+function observeElements() {
+
+  if (observer) {
+    observer.disconnect();
+  }
+
+  observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+
+    });
+
+  }, {
+    threshold: 0.12
+  });
+
+  document.querySelectorAll(
+    'main:not([hidden]) .reveal'
+  ).forEach(element => {
+    observer.observe(element);
+  });
+}
+
+observeElements();
+
+</script>
+
+</body>
+</html>
